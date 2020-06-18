@@ -7,6 +7,11 @@ if [ ! -f "$SRP_ROOT/db/master.db" ]; then
     ruby "$SRP_ROOT/scripts/first_time.rb"
 fi
 
+if [ ! -f "$SRP_ROOT/cert.pem" ]; then
+    echo "Create an new Certificate"
+    ruby "$SRP_ROOT/scripts/cert_create.rb"
+fi
+
 # CMD ["ruby", "serpico.rb"]
 ruby serpico.rb
 
